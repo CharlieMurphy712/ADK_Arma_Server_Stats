@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ADK Arma Web Application</title>
+
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />*@
+    <link href="~/Content/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                <span class="hidden-sm">
+                    <img id="brand-image" src="~/images/Logo.png" alt="ADK" />
+                </span>
+            </a>
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Mods", "Index", "Mods")</li>
+                            <li>@Html.ActionLink("Launch", "Index", "Launch")</li>
+                            <li>@Html.ActionLink("Leaderboards", "Index", "Leaderboards")</li>
+                        </ul>
+                        @*<ul class="nav navbar-nav navbar-right">
+                            @Html.Partial("_LoginPartial")
+                        </ul>*@
+                    </div><!--/.nav-collapse -->
+                </div><!--/.container-fluid -->
+            </div>
+        </nav>
+    </div>
+    <div class="container page-header text-center" >
+        <a href="@Url.Action("Index", "Home")" class="navbar-header">
+                <div class="hidden-md text-center">
+                    <img src="~/images/mainlogo2.png" alt="ADKGamers" style="position:center;" id="image-header" class="img-responsive col-xs-12"/>
+                </div>
+        </a>
+    </div>
+    
+    @RenderBody()
+
+    <div class="container" style="height:100px;">
+
+    </div>
+
+    <div class="panel-footer" style="background-color:lightgray;">
+        <p style="float:left; padding:5px;"> <strong>ADKGAMERS &copy; 2009 - @DateTime.Now.Year</strong></p>
+        <center></center>
+        <p style="float:right; padding-right:5px;"><strong>Licensed to: &copy; 2009-@DateTime.Now.Year<br />=ADK=™ Gaming Community</strong></p>
+    </div>
+
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap.min.js"></script>
+    <script src="~/Scripts/adk.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

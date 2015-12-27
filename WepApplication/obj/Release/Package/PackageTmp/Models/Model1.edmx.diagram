@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="afe16bc5e37541a88da4eb674b477ec9" Name="Diagram1">
+        <EntityTypeShape EntityType="exile_tavianaModel.account" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="exile_tavianaModel.clan" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="exile_tavianaModel.construction" Width="1.5" PointX="5.25" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="exile_tavianaModel.container" Width="1.5" PointX="8.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="exile_tavianaModel.player" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="exile_tavianaModel.player_history" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="exile_tavianaModel.territory" Width="1.5" PointX="3" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="exile_tavianaModel.vehicle" Width="1.5" PointX="3" PointY="33" IsExpanded="true" />
+        <AssociationConnector Association="exile_tavianaModel.account_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="exile_tavianaModel.clan_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="exile_tavianaModel.construction_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="exile_tavianaModel.container_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="exile_tavianaModel.player_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="exile_tavianaModel.territory_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="exile_tavianaModel.territory_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="exile_tavianaModel.vehicle_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="exile_tavianaModel.construction_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="exile_tavianaModel.container_ibfk_2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,977 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="exile_tavianaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="clan_id" Type="uint" />
+          <Property Name="name" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="money" Type="double" Nullable="false" />
+          <Property Name="score" Type="int" Nullable="false" />
+          <Property Name="kills" Type="uint" Nullable="false" />
+          <Property Name="deaths" Type="uint" Nullable="false" />
+          <Property Name="ai_kills" Type="uint" Nullable="false" />
+          <Property Name="bambi_kills" Type="uint" Nullable="false" />
+          <Property Name="karma" Type="uint" Nullable="false" />
+          <Property Name="first_connect_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="last_connect_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="last_disconnect_at" Type="datetime" Precision="0" />
+          <Property Name="total_connections" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="leader_uid" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="created_at" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="insignia_texture" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="construction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="class" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="account_uid" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="spawned_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="position_x" Type="double" Nullable="false" />
+          <Property Name="position_y" Type="double" Nullable="false" />
+          <Property Name="position_z" Type="double" Nullable="false" />
+          <Property Name="direction_x" Type="double" Nullable="false" />
+          <Property Name="direction_y" Type="double" Nullable="false" />
+          <Property Name="direction_z" Type="double" Nullable="false" />
+          <Property Name="up_x" Type="double" Nullable="false" />
+          <Property Name="up_y" Type="double" Nullable="false" />
+          <Property Name="up_z" Type="double" Nullable="false" />
+          <Property Name="is_locked" Type="bool" Nullable="false" />
+          <Property Name="pin_code" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="territory_id" Type="uint" />
+          <Property Name="last_updated_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="container">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="class" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="spawned_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="account_uid" Type="varchar" MaxLength="32" />
+          <Property Name="is_locked" Type="bool" Nullable="false" />
+          <Property Name="position_x" Type="double" Nullable="false" />
+          <Property Name="position_y" Type="double" Nullable="false" />
+          <Property Name="position_z" Type="double" Nullable="false" />
+          <Property Name="direction_x" Type="double" Nullable="false" />
+          <Property Name="direction_y" Type="double" Nullable="false" />
+          <Property Name="direction_z" Type="double" Nullable="false" />
+          <Property Name="up_x" Type="double" Nullable="false" />
+          <Property Name="up_y" Type="double" Nullable="false" />
+          <Property Name="up_z" Type="double" Nullable="false" />
+          <Property Name="cargo_items" Type="text" Nullable="false" />
+          <Property Name="cargo_magazines" Type="text" Nullable="false" />
+          <Property Name="cargo_weapons" Type="text" Nullable="false" />
+          <Property Name="cargo_container" Type="text" Nullable="false" />
+          <Property Name="pin_code" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="last_updated_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="territory_id" Type="uint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6005: The data type 'udouble' is currently not supported for the target Entity Framework version; the column 'damage' in the table 'def.exile_taviana.player' was excluded.
+warning 6005: The data type 'udouble' is currently not supported for the target Entity Framework version; the column 'hunger' in the table 'def.exile_taviana.player' was excluded.
+warning 6005: The data type 'udouble' is currently not supported for the target Entity Framework version; the column 'thirst' in the table 'def.exile_taviana.player' was excluded.
+warning 6005: The data type 'udouble' is currently not supported for the target Entity Framework version; the column 'alcohol' in the table 'def.exile_taviana.player' was excluded.
+warning 6005: The data type 'udouble' is currently not supported for the target Entity Framework version; the column 'oxygen_remaining' in the table 'def.exile_taviana.player' was excluded.
+warning 6005: The data type 'udouble' is currently not supported for the target Entity Framework version; the column 'bleeding_remaining' in the table 'def.exile_taviana.player' was excluded.-->
+        <EntityType Name="player">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="account_uid" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="direction" Type="double" Nullable="false" />
+          <Property Name="position_x" Type="double" Nullable="false" />
+          <Property Name="position_y" Type="double" Nullable="false" />
+          <Property Name="position_z" Type="double" Nullable="false" />
+          <Property Name="spawned_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="assigned_items" Type="text" Nullable="false" />
+          <Property Name="backpack" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="backpack_items" Type="text" Nullable="false" />
+          <Property Name="backpack_magazines" Type="text" Nullable="false" />
+          <Property Name="backpack_weapons" Type="text" Nullable="false" />
+          <Property Name="current_weapon" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="goggles" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="handgun_items" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="handgun_weapon" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="headgear" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="binocular" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="loaded_magazines" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="primary_weapon" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="primary_weapon_items" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="secondary_weapon" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="secondary_weapon_items" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="uniform" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="uniform_items" Type="text" Nullable="false" />
+          <Property Name="uniform_magazines" Type="text" Nullable="false" />
+          <Property Name="uniform_weapons" Type="text" Nullable="false" />
+          <Property Name="vest" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="vest_items" Type="text" Nullable="false" />
+          <Property Name="vest_magazines" Type="text" Nullable="false" />
+          <Property Name="vest_weapons" Type="text" Nullable="false" />
+          <Property Name="hitpoints" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="player_history">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="account_uid" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="died_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="position_x" Type="double" Nullable="false" />
+          <Property Name="position_y" Type="double" Nullable="false" />
+          <Property Name="position_z" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="territory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="owner_uid" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="position_x" Type="double" Nullable="false" />
+          <Property Name="position_y" Type="double" Nullable="false" />
+          <Property Name="position_z" Type="double" Nullable="false" />
+          <Property Name="radius" Type="double" Nullable="false" />
+          <Property Name="level" Type="int" Nullable="false" />
+          <Property Name="flag_texture" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="flag_stolen" Type="bool" Nullable="false" />
+          <Property Name="flag_stolen_by_uid" Type="varchar" MaxLength="32" />
+          <Property Name="flag_stolen_at" Type="datetime" Precision="0" />
+          <Property Name="flag_steal_message" Type="varchar" MaxLength="255" />
+          <Property Name="created_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="build_rights" Type="varchar" MaxLength="640" Nullable="false" />
+          <Property Name="moderators" Type="varchar" MaxLength="320" Nullable="false" />
+          <Property Name="last_paid_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6005: The data type 'udouble' is currently not supported for the target Entity Framework version; the column 'fuel' in the table 'def.exile_taviana.vehicle' was excluded.
+warning 6005: The data type 'udouble' is currently not supported for the target Entity Framework version; the column 'damage' in the table 'def.exile_taviana.vehicle' was excluded.-->
+        <EntityType Name="vehicle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="class" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="spawned_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="account_uid" Type="varchar" MaxLength="32" />
+          <Property Name="is_locked" Type="bool" Nullable="false" />
+          <Property Name="hitpoints" Type="text" Nullable="false" />
+          <Property Name="position_x" Type="double" Nullable="false" />
+          <Property Name="position_y" Type="double" Nullable="false" />
+          <Property Name="position_z" Type="double" Nullable="false" />
+          <Property Name="direction_x" Type="double" Nullable="false" />
+          <Property Name="direction_y" Type="double" Nullable="false" />
+          <Property Name="direction_z" Type="double" Nullable="false" />
+          <Property Name="up_x" Type="double" Nullable="false" />
+          <Property Name="up_y" Type="double" Nullable="false" />
+          <Property Name="up_z" Type="double" Nullable="false" />
+          <Property Name="cargo_items" Type="text" Nullable="false" />
+          <Property Name="cargo_magazines" Type="text" Nullable="false" />
+          <Property Name="cargo_weapons" Type="text" Nullable="false" />
+          <Property Name="cargo_container" Type="text" Nullable="false" />
+          <Property Name="pin_code" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="last_updated_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <Association Name="account_ibfk_1">
+          <End Role="clan" Type="Self.clan" Multiplicity="0..1" />
+          <End Role="account" Type="Self.account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clan">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="account">
+              <PropertyRef Name="clan_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="clan_ibfk_1">
+          <End Role="account" Type="Self.account" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="clan" Type="Self.clan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="clan">
+              <PropertyRef Name="leader_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="construction_ibfk_1">
+          <End Role="account" Type="Self.account" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="construction" Type="Self.construction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="construction">
+              <PropertyRef Name="account_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="construction_ibfk_2">
+          <End Role="territory" Type="Self.territory" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="construction" Type="Self.construction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="territory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="construction">
+              <PropertyRef Name="territory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="container_ibfk_1">
+          <End Role="account" Type="Self.account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="container" Type="Self.container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="container">
+              <PropertyRef Name="account_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="container_ibfk_2">
+          <End Role="territory" Type="Self.territory" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="container" Type="Self.container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="territory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="container">
+              <PropertyRef Name="territory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="player_ibfk_1">
+          <End Role="account" Type="Self.account" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="player" Type="Self.player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="player">
+              <PropertyRef Name="account_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="territory_ibfk_1">
+          <End Role="account" Type="Self.account" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="territory" Type="Self.territory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="territory">
+              <PropertyRef Name="owner_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="territory_ibfk_2">
+          <End Role="account" Type="Self.account" Multiplicity="0..1" />
+          <End Role="territory" Type="Self.territory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="territory">
+              <PropertyRef Name="flag_stolen_by_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vehicle_ibfk_1">
+          <End Role="account" Type="Self.account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="vehicle" Type="Self.vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="vehicle">
+              <PropertyRef Name="account_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="exile_tavianaModelStoreContainer">
+          <EntitySet Name="account" EntityType="Self.account" Schema="exile_taviana" store:Type="Tables" />
+          <EntitySet Name="clan" EntityType="Self.clan" Schema="exile_taviana" store:Type="Tables" />
+          <EntitySet Name="construction" EntityType="Self.construction" Schema="exile_taviana" store:Type="Tables" />
+          <EntitySet Name="container" EntityType="Self.container" Schema="exile_taviana" store:Type="Tables" />
+          <EntitySet Name="player" EntityType="Self.player" Schema="exile_taviana" store:Type="Tables" />
+          <EntitySet Name="player_history" EntityType="Self.player_history" Schema="exile_taviana" store:Type="Tables" />
+          <EntitySet Name="territory" EntityType="Self.territory" Schema="exile_taviana" store:Type="Tables" />
+          <EntitySet Name="vehicle" EntityType="Self.vehicle" Schema="exile_taviana" store:Type="Tables" />
+          <AssociationSet Name="account_ibfk_1" Association="Self.account_ibfk_1">
+            <End Role="clan" EntitySet="clan" />
+            <End Role="account" EntitySet="account" />
+          </AssociationSet>
+          <AssociationSet Name="clan_ibfk_1" Association="Self.clan_ibfk_1">
+            <End Role="account" EntitySet="account" />
+            <End Role="clan" EntitySet="clan" />
+          </AssociationSet>
+          <AssociationSet Name="construction_ibfk_1" Association="Self.construction_ibfk_1">
+            <End Role="account" EntitySet="account" />
+            <End Role="construction" EntitySet="construction" />
+          </AssociationSet>
+          <AssociationSet Name="construction_ibfk_2" Association="Self.construction_ibfk_2">
+            <End Role="territory" EntitySet="territory" />
+            <End Role="construction" EntitySet="construction" />
+          </AssociationSet>
+          <AssociationSet Name="container_ibfk_1" Association="Self.container_ibfk_1">
+            <End Role="account" EntitySet="account" />
+            <End Role="container" EntitySet="container" />
+          </AssociationSet>
+          <AssociationSet Name="container_ibfk_2" Association="Self.container_ibfk_2">
+            <End Role="territory" EntitySet="territory" />
+            <End Role="container" EntitySet="container" />
+          </AssociationSet>
+          <AssociationSet Name="player_ibfk_1" Association="Self.player_ibfk_1">
+            <End Role="account" EntitySet="account" />
+            <End Role="player" EntitySet="player" />
+          </AssociationSet>
+          <AssociationSet Name="territory_ibfk_1" Association="Self.territory_ibfk_1">
+            <End Role="account" EntitySet="account" />
+            <End Role="territory" EntitySet="territory" />
+          </AssociationSet>
+          <AssociationSet Name="territory_ibfk_2" Association="Self.territory_ibfk_2">
+            <End Role="account" EntitySet="account" />
+            <End Role="territory" EntitySet="territory" />
+          </AssociationSet>
+          <AssociationSet Name="vehicle_ibfk_1" Association="Self.vehicle_ibfk_1">
+            <End Role="account" EntitySet="account" />
+            <End Role="vehicle" EntitySet="vehicle" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="exile_tavianaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clan_id" Type="Int64" />
+          <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="money" Type="Double" Nullable="false" />
+          <Property Name="score" Type="Int32" Nullable="false" />
+          <Property Name="kills" Type="Int64" Nullable="false" />
+          <Property Name="deaths" Type="Int64" Nullable="false" />
+          <Property Name="ai_kills" Type="Int64" Nullable="false" />
+          <Property Name="bambi_kills" Type="Int64" Nullable="false" />
+          <Property Name="karma" Type="Int64" Nullable="false" />
+          <Property Name="first_connect_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="last_connect_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="last_disconnect_at" Type="DateTime" />
+          <Property Name="total_connections" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="clan" Relationship="Self.account_ibfk_1" FromRole="account" ToRole="clan" />
+          <NavigationProperty Name="clans" Relationship="Self.clan_ibfk_1" FromRole="account" ToRole="clan" />
+          <NavigationProperty Name="constructions" Relationship="Self.construction_ibfk_1" FromRole="account" ToRole="construction" />
+          <NavigationProperty Name="containers" Relationship="Self.container_ibfk_1" FromRole="account" ToRole="container" />
+          <NavigationProperty Name="players" Relationship="Self.player_ibfk_1" FromRole="account" ToRole="player" />
+          <NavigationProperty Name="territories" Relationship="Self.territory_ibfk_1" FromRole="account" ToRole="territory" />
+          <NavigationProperty Name="territories1" Relationship="Self.territory_ibfk_2" FromRole="account" ToRole="territory" />
+          <NavigationProperty Name="vehicles" Relationship="Self.vehicle_ibfk_1" FromRole="account" ToRole="vehicle" />
+        </EntityType>
+        <EntityType Name="clan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="leader_uid" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" />
+          <Property Name="insignia_texture" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="accounts" Relationship="Self.account_ibfk_1" FromRole="clan" ToRole="account" />
+          <NavigationProperty Name="account" Relationship="Self.clan_ibfk_1" FromRole="clan" ToRole="account" />
+        </EntityType>
+        <EntityType Name="construction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="class" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="account_uid" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="spawned_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="position_x" Type="Double" Nullable="false" />
+          <Property Name="position_y" Type="Double" Nullable="false" />
+          <Property Name="position_z" Type="Double" Nullable="false" />
+          <Property Name="direction_x" Type="Double" Nullable="false" />
+          <Property Name="direction_y" Type="Double" Nullable="false" />
+          <Property Name="direction_z" Type="Double" Nullable="false" />
+          <Property Name="up_x" Type="Double" Nullable="false" />
+          <Property Name="up_y" Type="Double" Nullable="false" />
+          <Property Name="up_z" Type="Double" Nullable="false" />
+          <Property Name="is_locked" Type="Boolean" Nullable="false" />
+          <Property Name="pin_code" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="territory_id" Type="Int64" />
+          <Property Name="last_updated_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="account" Relationship="Self.construction_ibfk_1" FromRole="construction" ToRole="account" />
+          <NavigationProperty Name="territory" Relationship="Self.construction_ibfk_2" FromRole="construction" ToRole="territory" />
+        </EntityType>
+        <EntityType Name="container">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="class" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="spawned_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="account_uid" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="is_locked" Type="Boolean" Nullable="false" />
+          <Property Name="position_x" Type="Double" Nullable="false" />
+          <Property Name="position_y" Type="Double" Nullable="false" />
+          <Property Name="position_z" Type="Double" Nullable="false" />
+          <Property Name="direction_x" Type="Double" Nullable="false" />
+          <Property Name="direction_y" Type="Double" Nullable="false" />
+          <Property Name="direction_z" Type="Double" Nullable="false" />
+          <Property Name="up_x" Type="Double" Nullable="false" />
+          <Property Name="up_y" Type="Double" Nullable="false" />
+          <Property Name="up_z" Type="Double" Nullable="false" />
+          <Property Name="cargo_items" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cargo_magazines" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cargo_weapons" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cargo_container" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pin_code" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_updated_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="territory_id" Type="Int64" />
+          <NavigationProperty Name="account" Relationship="Self.container_ibfk_1" FromRole="container" ToRole="account" />
+          <NavigationProperty Name="territory" Relationship="Self.container_ibfk_2" FromRole="container" ToRole="territory" />
+        </EntityType>
+        <EntityType Name="player">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="account_uid" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direction" Type="Double" Nullable="false" />
+          <Property Name="position_x" Type="Double" Nullable="false" />
+          <Property Name="position_y" Type="Double" Nullable="false" />
+          <Property Name="position_z" Type="Double" Nullable="false" />
+          <Property Name="spawned_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="assigned_items" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="backpack" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="backpack_items" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="backpack_magazines" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="backpack_weapons" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="current_weapon" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="goggles" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="handgun_items" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="handgun_weapon" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="headgear" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="binocular" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="loaded_magazines" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="primary_weapon" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="primary_weapon_items" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="secondary_weapon" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="secondary_weapon_items" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uniform" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uniform_items" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uniform_magazines" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uniform_weapons" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vest" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vest_items" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vest_magazines" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vest_weapons" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hitpoints" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="account" Relationship="Self.player_ibfk_1" FromRole="player" ToRole="account" />
+        </EntityType>
+        <EntityType Name="player_history">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="account_uid" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="died_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="position_x" Type="Double" Nullable="false" />
+          <Property Name="position_y" Type="Double" Nullable="false" />
+          <Property Name="position_z" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="territory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="owner_uid" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="position_x" Type="Double" Nullable="false" />
+          <Property Name="position_y" Type="Double" Nullable="false" />
+          <Property Name="position_z" Type="Double" Nullable="false" />
+          <Property Name="radius" Type="Double" Nullable="false" />
+          <Property Name="level" Type="Int32" Nullable="false" />
+          <Property Name="flag_texture" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="flag_stolen" Type="Boolean" Nullable="false" />
+          <Property Name="flag_stolen_by_uid" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="flag_stolen_at" Type="DateTime" />
+          <Property Name="flag_steal_message" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="build_rights" Type="String" MaxLength="640" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="moderators" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_paid_at" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="account" Relationship="Self.territory_ibfk_1" FromRole="territory" ToRole="account" />
+          <NavigationProperty Name="account1" Relationship="Self.territory_ibfk_2" FromRole="territory" ToRole="account" />
+          <NavigationProperty Name="constructions" Relationship="Self.construction_ibfk_2" FromRole="territory" ToRole="construction" />
+          <NavigationProperty Name="containers" Relationship="Self.container_ibfk_2" FromRole="territory" ToRole="container" />
+        </EntityType>
+        <EntityType Name="vehicle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="class" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="spawned_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="account_uid" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="is_locked" Type="Boolean" Nullable="false" />
+          <Property Name="hitpoints" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="position_x" Type="Double" Nullable="false" />
+          <Property Name="position_y" Type="Double" Nullable="false" />
+          <Property Name="position_z" Type="Double" Nullable="false" />
+          <Property Name="direction_x" Type="Double" Nullable="false" />
+          <Property Name="direction_y" Type="Double" Nullable="false" />
+          <Property Name="direction_z" Type="Double" Nullable="false" />
+          <Property Name="up_x" Type="Double" Nullable="false" />
+          <Property Name="up_y" Type="Double" Nullable="false" />
+          <Property Name="up_z" Type="Double" Nullable="false" />
+          <Property Name="cargo_items" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cargo_magazines" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cargo_weapons" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cargo_container" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pin_code" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_updated_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="account" Relationship="Self.vehicle_ibfk_1" FromRole="vehicle" ToRole="account" />
+        </EntityType>
+        <Association Name="account_ibfk_1">
+          <End Role="clan" Type="Self.clan" Multiplicity="0..1" />
+          <End Role="account" Type="Self.account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clan">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="account">
+              <PropertyRef Name="clan_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="clan_ibfk_1">
+          <End Role="account" Type="Self.account" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="clan" Type="Self.clan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="clan">
+              <PropertyRef Name="leader_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="construction_ibfk_1">
+          <End Role="account" Type="Self.account" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="construction" Type="Self.construction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="construction">
+              <PropertyRef Name="account_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="container_ibfk_1">
+          <End Role="account" Type="Self.account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="container" Type="Self.container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="container">
+              <PropertyRef Name="account_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="player_ibfk_1">
+          <End Role="account" Type="Self.account" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="player" Type="Self.player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="player">
+              <PropertyRef Name="account_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="territory_ibfk_1">
+          <End Role="account" Type="Self.account" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="territory" Type="Self.territory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="territory">
+              <PropertyRef Name="owner_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="territory_ibfk_2">
+          <End Role="account" Type="Self.account" Multiplicity="0..1" />
+          <End Role="territory" Type="Self.territory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="territory">
+              <PropertyRef Name="flag_stolen_by_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vehicle_ibfk_1">
+          <End Role="account" Type="Self.account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="vehicle" Type="Self.vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="vehicle">
+              <PropertyRef Name="account_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="construction_ibfk_2">
+          <End Role="territory" Type="Self.territory" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="construction" Type="Self.construction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="territory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="construction">
+              <PropertyRef Name="territory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="container_ibfk_2">
+          <End Role="territory" Type="Self.territory" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="container" Type="Self.container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="territory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="container">
+              <PropertyRef Name="territory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="exile_tavianaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accounts" EntityType="Self.account" />
+          <EntitySet Name="clans" EntityType="Self.clan" />
+          <EntitySet Name="constructions" EntityType="Self.construction" />
+          <EntitySet Name="containers" EntityType="Self.container" />
+          <EntitySet Name="players" EntityType="Self.player" />
+          <EntitySet Name="player_history" EntityType="Self.player_history" />
+          <EntitySet Name="territories" EntityType="Self.territory" />
+          <EntitySet Name="vehicles" EntityType="Self.vehicle" />
+          <AssociationSet Name="account_ibfk_1" Association="Self.account_ibfk_1">
+            <End Role="clan" EntitySet="clans" />
+            <End Role="account" EntitySet="accounts" />
+          </AssociationSet>
+          <AssociationSet Name="clan_ibfk_1" Association="Self.clan_ibfk_1">
+            <End Role="account" EntitySet="accounts" />
+            <End Role="clan" EntitySet="clans" />
+          </AssociationSet>
+          <AssociationSet Name="construction_ibfk_1" Association="Self.construction_ibfk_1">
+            <End Role="account" EntitySet="accounts" />
+            <End Role="construction" EntitySet="constructions" />
+          </AssociationSet>
+          <AssociationSet Name="container_ibfk_1" Association="Self.container_ibfk_1">
+            <End Role="account" EntitySet="accounts" />
+            <End Role="container" EntitySet="containers" />
+          </AssociationSet>
+          <AssociationSet Name="player_ibfk_1" Association="Self.player_ibfk_1">
+            <End Role="account" EntitySet="accounts" />
+            <End Role="player" EntitySet="players" />
+          </AssociationSet>
+          <AssociationSet Name="territory_ibfk_1" Association="Self.territory_ibfk_1">
+            <End Role="account" EntitySet="accounts" />
+            <End Role="territory" EntitySet="territories" />
+          </AssociationSet>
+          <AssociationSet Name="territory_ibfk_2" Association="Self.territory_ibfk_2">
+            <End Role="account" EntitySet="accounts" />
+            <End Role="territory" EntitySet="territories" />
+          </AssociationSet>
+          <AssociationSet Name="vehicle_ibfk_1" Association="Self.vehicle_ibfk_1">
+            <End Role="account" EntitySet="accounts" />
+            <End Role="vehicle" EntitySet="vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="construction_ibfk_2" Association="Self.construction_ibfk_2">
+            <End Role="territory" EntitySet="territories" />
+            <End Role="construction" EntitySet="constructions" />
+          </AssociationSet>
+          <AssociationSet Name="container_ibfk_2" Association="Self.container_ibfk_2">
+            <End Role="territory" EntitySet="territories" />
+            <End Role="container" EntitySet="containers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="exile_tavianaModelStoreContainer" CdmEntityContainer="exile_tavianaEntities">
+          <EntitySetMapping Name="accounts">
+            <EntityTypeMapping TypeName="exile_tavianaModel.account">
+              <MappingFragment StoreEntitySet="account">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="clan_id" ColumnName="clan_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="kills" ColumnName="kills" />
+                <ScalarProperty Name="deaths" ColumnName="deaths" />
+                <ScalarProperty Name="ai_kills" ColumnName="ai_kills" />
+                <ScalarProperty Name="bambi_kills" ColumnName="bambi_kills" />
+                <ScalarProperty Name="karma" ColumnName="karma" />
+                <ScalarProperty Name="first_connect_at" ColumnName="first_connect_at" />
+                <ScalarProperty Name="last_connect_at" ColumnName="last_connect_at" />
+                <ScalarProperty Name="last_disconnect_at" ColumnName="last_disconnect_at" />
+                <ScalarProperty Name="total_connections" ColumnName="total_connections" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clans">
+            <EntityTypeMapping TypeName="exile_tavianaModel.clan">
+              <MappingFragment StoreEntitySet="clan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="leader_uid" ColumnName="leader_uid" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="insignia_texture" ColumnName="insignia_texture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="constructions">
+            <EntityTypeMapping TypeName="exile_tavianaModel.construction">
+              <MappingFragment StoreEntitySet="construction">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="account_uid" ColumnName="account_uid" />
+                <ScalarProperty Name="spawned_at" ColumnName="spawned_at" />
+                <ScalarProperty Name="position_x" ColumnName="position_x" />
+                <ScalarProperty Name="position_y" ColumnName="position_y" />
+                <ScalarProperty Name="position_z" ColumnName="position_z" />
+                <ScalarProperty Name="direction_x" ColumnName="direction_x" />
+                <ScalarProperty Name="direction_y" ColumnName="direction_y" />
+                <ScalarProperty Name="direction_z" ColumnName="direction_z" />
+                <ScalarProperty Name="up_x" ColumnName="up_x" />
+                <ScalarProperty Name="up_y" ColumnName="up_y" />
+                <ScalarProperty Name="up_z" ColumnName="up_z" />
+                <ScalarProperty Name="is_locked" ColumnName="is_locked" />
+                <ScalarProperty Name="pin_code" ColumnName="pin_code" />
+                <ScalarProperty Name="territory_id" ColumnName="territory_id" />
+                <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="containers">
+            <EntityTypeMapping TypeName="exile_tavianaModel.container">
+              <MappingFragment StoreEntitySet="container">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="spawned_at" ColumnName="spawned_at" />
+                <ScalarProperty Name="account_uid" ColumnName="account_uid" />
+                <ScalarProperty Name="is_locked" ColumnName="is_locked" />
+                <ScalarProperty Name="position_x" ColumnName="position_x" />
+                <ScalarProperty Name="position_y" ColumnName="position_y" />
+                <ScalarProperty Name="position_z" ColumnName="position_z" />
+                <ScalarProperty Name="direction_x" ColumnName="direction_x" />
+                <ScalarProperty Name="direction_y" ColumnName="direction_y" />
+                <ScalarProperty Name="direction_z" ColumnName="direction_z" />
+                <ScalarProperty Name="up_x" ColumnName="up_x" />
+                <ScalarProperty Name="up_y" ColumnName="up_y" />
+                <ScalarProperty Name="up_z" ColumnName="up_z" />
+                <ScalarProperty Name="cargo_items" ColumnName="cargo_items" />
+                <ScalarProperty Name="cargo_magazines" ColumnName="cargo_magazines" />
+                <ScalarProperty Name="cargo_weapons" ColumnName="cargo_weapons" />
+                <ScalarProperty Name="cargo_container" ColumnName="cargo_container" />
+                <ScalarProperty Name="pin_code" ColumnName="pin_code" />
+                <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+                <ScalarProperty Name="territory_id" ColumnName="territory_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="players">
+            <EntityTypeMapping TypeName="exile_tavianaModel.player">
+              <MappingFragment StoreEntitySet="player">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="account_uid" ColumnName="account_uid" />
+                <ScalarProperty Name="direction" ColumnName="direction" />
+                <ScalarProperty Name="position_x" ColumnName="position_x" />
+                <ScalarProperty Name="position_y" ColumnName="position_y" />
+                <ScalarProperty Name="position_z" ColumnName="position_z" />
+                <ScalarProperty Name="spawned_at" ColumnName="spawned_at" />
+                <ScalarProperty Name="assigned_items" ColumnName="assigned_items" />
+                <ScalarProperty Name="backpack" ColumnName="backpack" />
+                <ScalarProperty Name="backpack_items" ColumnName="backpack_items" />
+                <ScalarProperty Name="backpack_magazines" ColumnName="backpack_magazines" />
+                <ScalarProperty Name="backpack_weapons" ColumnName="backpack_weapons" />
+                <ScalarProperty Name="current_weapon" ColumnName="current_weapon" />
+                <ScalarProperty Name="goggles" ColumnName="goggles" />
+                <ScalarProperty Name="handgun_items" ColumnName="handgun_items" />
+                <ScalarProperty Name="handgun_weapon" ColumnName="handgun_weapon" />
+                <ScalarProperty Name="headgear" ColumnName="headgear" />
+                <ScalarProperty Name="binocular" ColumnName="binocular" />
+                <ScalarProperty Name="loaded_magazines" ColumnName="loaded_magazines" />
+                <ScalarProperty Name="primary_weapon" ColumnName="primary_weapon" />
+                <ScalarProperty Name="primary_weapon_items" ColumnName="primary_weapon_items" />
+                <ScalarProperty Name="secondary_weapon" ColumnName="secondary_weapon" />
+                <ScalarProperty Name="secondary_weapon_items" ColumnName="secondary_weapon_items" />
+                <ScalarProperty Name="uniform" ColumnName="uniform" />
+                <ScalarProperty Name="uniform_items" ColumnName="uniform_items" />
+                <ScalarProperty Name="uniform_magazines" ColumnName="uniform_magazines" />
+                <ScalarProperty Name="uniform_weapons" ColumnName="uniform_weapons" />
+                <ScalarProperty Name="vest" ColumnName="vest" />
+                <ScalarProperty Name="vest_items" ColumnName="vest_items" />
+                <ScalarProperty Name="vest_magazines" ColumnName="vest_magazines" />
+                <ScalarProperty Name="vest_weapons" ColumnName="vest_weapons" />
+                <ScalarProperty Name="hitpoints" ColumnName="hitpoints" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="player_history">
+            <EntityTypeMapping TypeName="exile_tavianaModel.player_history">
+              <MappingFragment StoreEntitySet="player_history">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="account_uid" ColumnName="account_uid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="died_at" ColumnName="died_at" />
+                <ScalarProperty Name="position_x" ColumnName="position_x" />
+                <ScalarProperty Name="position_y" ColumnName="position_y" />
+                <ScalarProperty Name="position_z" ColumnName="position_z" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="territories">
+            <EntityTypeMapping TypeName="exile_tavianaModel.territory">
+              <MappingFragment StoreEntitySet="territory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="owner_uid" ColumnName="owner_uid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="position_x" ColumnName="position_x" />
+                <ScalarProperty Name="position_y" ColumnName="position_y" />
+                <ScalarProperty Name="position_z" ColumnName="position_z" />
+                <ScalarProperty Name="radius" ColumnName="radius" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="flag_texture" ColumnName="flag_texture" />
+                <ScalarProperty Name="flag_stolen" ColumnName="flag_stolen" />
+                <ScalarProperty Name="flag_stolen_by_uid" ColumnName="flag_stolen_by_uid" />
+                <ScalarProperty Name="flag_stolen_at" ColumnName="flag_stolen_at" />
+                <ScalarProperty Name="flag_steal_message" ColumnName="flag_steal_message" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="build_rights" ColumnName="build_rights" />
+                <ScalarProperty Name="moderators" ColumnName="moderators" />
+                <ScalarProperty Name="last_paid_at" ColumnName="last_paid_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vehicles">
+            <EntityTypeMapping TypeName="exile_tavianaModel.vehicle">
+              <MappingFragment StoreEntitySet="vehicle">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="spawned_at" ColumnName="spawned_at" />
+                <ScalarProperty Name="account_uid" ColumnName="account_uid" />
+                <ScalarProperty Name="is_locked" ColumnName="is_locked" />
+                <ScalarProperty Name="hitpoints" ColumnName="hitpoints" />
+                <ScalarProperty Name="position_x" ColumnName="position_x" />
+                <ScalarProperty Name="position_y" ColumnName="position_y" />
+                <ScalarProperty Name="position_z" ColumnName="position_z" />
+                <ScalarProperty Name="direction_x" ColumnName="direction_x" />
+                <ScalarProperty Name="direction_y" ColumnName="direction_y" />
+                <ScalarProperty Name="direction_z" ColumnName="direction_z" />
+                <ScalarProperty Name="up_x" ColumnName="up_x" />
+                <ScalarProperty Name="up_y" ColumnName="up_y" />
+                <ScalarProperty Name="up_z" ColumnName="up_z" />
+                <ScalarProperty Name="cargo_items" ColumnName="cargo_items" />
+                <ScalarProperty Name="cargo_magazines" ColumnName="cargo_magazines" />
+                <ScalarProperty Name="cargo_weapons" ColumnName="cargo_weapons" />
+                <ScalarProperty Name="cargo_container" ColumnName="cargo_container" />
+                <ScalarProperty Name="pin_code" ColumnName="pin_code" />
+                <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

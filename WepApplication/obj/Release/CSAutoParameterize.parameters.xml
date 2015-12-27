@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-WepApplication-20151217095752;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-WepApplication-20151217095752.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Mr\.Pig\\Downloads\\WepApplication\ \(1\)\\WepApplication\\WepApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="exile_bornholmEntities-Web.config Connection String" description="exile_bornholmEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=72.5.195.171;port=3316;user id=adk_exile_server;persistsecurityinfo=True;database=exile_bornholm;password=3gbnSWc83bcMEUbc8P7hc&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Mr\.Pig\\Downloads\\WepApplication\ \(1\)\\WepApplication\\WepApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='exile_bornholmEntities']/@connectionString" />
+  </parameter>
+  <parameter name="exile_tavianaEntities-Web.config Connection String" description="exile_tavianaEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;port=3316;server=72.5.195.171;user id=adk_exile_server;password=3gbnSWc83bcMEUbc8P7hc;persistsecurityinfo=True;database=exile_taviana&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Mr\.Pig\\Downloads\\WepApplication\ \(1\)\\WepApplication\\WepApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='exile_tavianaEntities']/@connectionString" />
+  </parameter>
+</parameters>

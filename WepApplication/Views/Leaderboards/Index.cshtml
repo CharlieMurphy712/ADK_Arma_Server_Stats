@@ -1,0 +1,54 @@
+﻿@model WepApplication.Models.HomeViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+<div class="container">
+        <button style="margin:7px 15px 17px 0;" type="button" data-placement="bottom" class="btn btn-md btn-success" data-toggle="popover" data-trigger="focus" title="Player name: @Model.ids.First().name" data-content="@Model.ids.First().kills Kills">Top Player Kills</button>
+        <button style="margin:7px 15px 17px 0;" type="button" data-placement="bottom" class="btn btn-md btn-danger" data-toggle="popover" data-trigger="focus" title="Player name: @Model.deaths.First().name" data-content="@Model.deaths.First().deaths Deaths">Top Player Deaths</button>
+        <button style="margin:7px 15px 17px 0;" type="button" data-placement="bottom" class="btn btn-md btn-primary" data-toggle="popover" data-trigger="focus" title="Player name: @Model.karma.First().name" data-content="@Model.karma.First().karma Karma">Highest Karma</button>
+        @*<button style="margin:7px 15px 17px 0;" type="button" data-placement="right" class="btn btn-md btn-primary" data-toggle="popover" data-trigger="focus" title="Player name: @Model.money.First().name" data-content="@Model.money.First().money Pop Tabs">Richest Player</button>*@
+        <button style="margin:7px 15px 17px 0;" type="button" data-placement="bottom" class="btn btn-md btn-warning" data-toggle="popover" data-trigger="focus" title="Player name: @Model.joined.First().name" data-content="@Model.joined.First().first_connect_at">Newest Player</button>
+</div>
+<div class="container" style="height:70px;">
+
+</div>
+
+<div class="container" style="background-color:white; border:solid; border-width:1px; border-color:black;">
+    <h1>@Model.AnotherProperty</h1>
+    <table class=" table datatable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Kills</th>
+            <th>Bambi Kills</th>
+            <th>AI Kills</th>
+            <th>Deaths</th>
+            <th>Karma</th>
+            <th>Joined</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (WepApplication.Models.account item in Model.ids)
+        {
+            <tr>
+                <td>@item.name</td>
+                <td>@item.kills</td>
+                <td>@item.bambi_kills</td>
+                <td>@item.ai_kills</td>
+                <td>@item.deaths</td>
+                <td>@item.karma</td>
+                <td>@item.first_connect_at</td>
+            </tr>
+
+        }
+    </tbody>
+    </table>
+</div>
+
+
+

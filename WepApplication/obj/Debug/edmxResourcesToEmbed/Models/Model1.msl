@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="exile_tavianaModelStoreContainer" CdmEntityContainer="exile_tavianaEntities">
+    <EntitySetMapping Name="accounts">
+      <EntityTypeMapping TypeName="exile_tavianaModel.account">
+        <MappingFragment StoreEntitySet="account">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="clan_id" ColumnName="clan_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="money" ColumnName="money" />
+          <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="kills" ColumnName="kills" />
+          <ScalarProperty Name="deaths" ColumnName="deaths" />
+          <ScalarProperty Name="ai_kills" ColumnName="ai_kills" />
+          <ScalarProperty Name="bambi_kills" ColumnName="bambi_kills" />
+          <ScalarProperty Name="karma" ColumnName="karma" />
+          <ScalarProperty Name="first_connect_at" ColumnName="first_connect_at" />
+          <ScalarProperty Name="last_connect_at" ColumnName="last_connect_at" />
+          <ScalarProperty Name="last_disconnect_at" ColumnName="last_disconnect_at" />
+          <ScalarProperty Name="total_connections" ColumnName="total_connections" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clans">
+      <EntityTypeMapping TypeName="exile_tavianaModel.clan">
+        <MappingFragment StoreEntitySet="clan">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="leader_uid" ColumnName="leader_uid" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="insignia_texture" ColumnName="insignia_texture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="constructions">
+      <EntityTypeMapping TypeName="exile_tavianaModel.construction">
+        <MappingFragment StoreEntitySet="construction">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="class" ColumnName="class" />
+          <ScalarProperty Name="account_uid" ColumnName="account_uid" />
+          <ScalarProperty Name="spawned_at" ColumnName="spawned_at" />
+          <ScalarProperty Name="position_x" ColumnName="position_x" />
+          <ScalarProperty Name="position_y" ColumnName="position_y" />
+          <ScalarProperty Name="position_z" ColumnName="position_z" />
+          <ScalarProperty Name="direction_x" ColumnName="direction_x" />
+          <ScalarProperty Name="direction_y" ColumnName="direction_y" />
+          <ScalarProperty Name="direction_z" ColumnName="direction_z" />
+          <ScalarProperty Name="up_x" ColumnName="up_x" />
+          <ScalarProperty Name="up_y" ColumnName="up_y" />
+          <ScalarProperty Name="up_z" ColumnName="up_z" />
+          <ScalarProperty Name="is_locked" ColumnName="is_locked" />
+          <ScalarProperty Name="pin_code" ColumnName="pin_code" />
+          <ScalarProperty Name="territory_id" ColumnName="territory_id" />
+          <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="containers">
+      <EntityTypeMapping TypeName="exile_tavianaModel.container">
+        <MappingFragment StoreEntitySet="container">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="class" ColumnName="class" />
+          <ScalarProperty Name="spawned_at" ColumnName="spawned_at" />
+          <ScalarProperty Name="account_uid" ColumnName="account_uid" />
+          <ScalarProperty Name="is_locked" ColumnName="is_locked" />
+          <ScalarProperty Name="position_x" ColumnName="position_x" />
+          <ScalarProperty Name="position_y" ColumnName="position_y" />
+          <ScalarProperty Name="position_z" ColumnName="position_z" />
+          <ScalarProperty Name="direction_x" ColumnName="direction_x" />
+          <ScalarProperty Name="direction_y" ColumnName="direction_y" />
+          <ScalarProperty Name="direction_z" ColumnName="direction_z" />
+          <ScalarProperty Name="up_x" ColumnName="up_x" />
+          <ScalarProperty Name="up_y" ColumnName="up_y" />
+          <ScalarProperty Name="up_z" ColumnName="up_z" />
+          <ScalarProperty Name="cargo_items" ColumnName="cargo_items" />
+          <ScalarProperty Name="cargo_magazines" ColumnName="cargo_magazines" />
+          <ScalarProperty Name="cargo_weapons" ColumnName="cargo_weapons" />
+          <ScalarProperty Name="cargo_container" ColumnName="cargo_container" />
+          <ScalarProperty Name="pin_code" ColumnName="pin_code" />
+          <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+          <ScalarProperty Name="territory_id" ColumnName="territory_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="players">
+      <EntityTypeMapping TypeName="exile_tavianaModel.player">
+        <MappingFragment StoreEntitySet="player">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="account_uid" ColumnName="account_uid" />
+          <ScalarProperty Name="direction" ColumnName="direction" />
+          <ScalarProperty Name="position_x" ColumnName="position_x" />
+          <ScalarProperty Name="position_y" ColumnName="position_y" />
+          <ScalarProperty Name="position_z" ColumnName="position_z" />
+          <ScalarProperty Name="spawned_at" ColumnName="spawned_at" />
+          <ScalarProperty Name="assigned_items" ColumnName="assigned_items" />
+          <ScalarProperty Name="backpack" ColumnName="backpack" />
+          <ScalarProperty Name="backpack_items" ColumnName="backpack_items" />
+          <ScalarProperty Name="backpack_magazines" ColumnName="backpack_magazines" />
+          <ScalarProperty Name="backpack_weapons" ColumnName="backpack_weapons" />
+          <ScalarProperty Name="current_weapon" ColumnName="current_weapon" />
+          <ScalarProperty Name="goggles" ColumnName="goggles" />
+          <ScalarProperty Name="handgun_items" ColumnName="handgun_items" />
+          <ScalarProperty Name="handgun_weapon" ColumnName="handgun_weapon" />
+          <ScalarProperty Name="headgear" ColumnName="headgear" />
+          <ScalarProperty Name="binocular" ColumnName="binocular" />
+          <ScalarProperty Name="loaded_magazines" ColumnName="loaded_magazines" />
+          <ScalarProperty Name="primary_weapon" ColumnName="primary_weapon" />
+          <ScalarProperty Name="primary_weapon_items" ColumnName="primary_weapon_items" />
+          <ScalarProperty Name="secondary_weapon" ColumnName="secondary_weapon" />
+          <ScalarProperty Name="secondary_weapon_items" ColumnName="secondary_weapon_items" />
+          <ScalarProperty Name="uniform" ColumnName="uniform" />
+          <ScalarProperty Name="uniform_items" ColumnName="uniform_items" />
+          <ScalarProperty Name="uniform_magazines" ColumnName="uniform_magazines" />
+          <ScalarProperty Name="uniform_weapons" ColumnName="uniform_weapons" />
+          <ScalarProperty Name="vest" ColumnName="vest" />
+          <ScalarProperty Name="vest_items" ColumnName="vest_items" />
+          <ScalarProperty Name="vest_magazines" ColumnName="vest_magazines" />
+          <ScalarProperty Name="vest_weapons" ColumnName="vest_weapons" />
+          <ScalarProperty Name="hitpoints" ColumnName="hitpoints" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="player_history">
+      <EntityTypeMapping TypeName="exile_tavianaModel.player_history">
+        <MappingFragment StoreEntitySet="player_history">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="account_uid" ColumnName="account_uid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="died_at" ColumnName="died_at" />
+          <ScalarProperty Name="position_x" ColumnName="position_x" />
+          <ScalarProperty Name="position_y" ColumnName="position_y" />
+          <ScalarProperty Name="position_z" ColumnName="position_z" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="territories">
+      <EntityTypeMapping TypeName="exile_tavianaModel.territory">
+        <MappingFragment StoreEntitySet="territory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="owner_uid" ColumnName="owner_uid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="position_x" ColumnName="position_x" />
+          <ScalarProperty Name="position_y" ColumnName="position_y" />
+          <ScalarProperty Name="position_z" ColumnName="position_z" />
+          <ScalarProperty Name="radius" ColumnName="radius" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="flag_texture" ColumnName="flag_texture" />
+          <ScalarProperty Name="flag_stolen" ColumnName="flag_stolen" />
+          <ScalarProperty Name="flag_stolen_by_uid" ColumnName="flag_stolen_by_uid" />
+          <ScalarProperty Name="flag_stolen_at" ColumnName="flag_stolen_at" />
+          <ScalarProperty Name="flag_steal_message" ColumnName="flag_steal_message" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="build_rights" ColumnName="build_rights" />
+          <ScalarProperty Name="moderators" ColumnName="moderators" />
+          <ScalarProperty Name="last_paid_at" ColumnName="last_paid_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vehicles">
+      <EntityTypeMapping TypeName="exile_tavianaModel.vehicle">
+        <MappingFragment StoreEntitySet="vehicle">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="class" ColumnName="class" />
+          <ScalarProperty Name="spawned_at" ColumnName="spawned_at" />
+          <ScalarProperty Name="account_uid" ColumnName="account_uid" />
+          <ScalarProperty Name="is_locked" ColumnName="is_locked" />
+          <ScalarProperty Name="hitpoints" ColumnName="hitpoints" />
+          <ScalarProperty Name="position_x" ColumnName="position_x" />
+          <ScalarProperty Name="position_y" ColumnName="position_y" />
+          <ScalarProperty Name="position_z" ColumnName="position_z" />
+          <ScalarProperty Name="direction_x" ColumnName="direction_x" />
+          <ScalarProperty Name="direction_y" ColumnName="direction_y" />
+          <ScalarProperty Name="direction_z" ColumnName="direction_z" />
+          <ScalarProperty Name="up_x" ColumnName="up_x" />
+          <ScalarProperty Name="up_y" ColumnName="up_y" />
+          <ScalarProperty Name="up_z" ColumnName="up_z" />
+          <ScalarProperty Name="cargo_items" ColumnName="cargo_items" />
+          <ScalarProperty Name="cargo_magazines" ColumnName="cargo_magazines" />
+          <ScalarProperty Name="cargo_weapons" ColumnName="cargo_weapons" />
+          <ScalarProperty Name="cargo_container" ColumnName="cargo_container" />
+          <ScalarProperty Name="pin_code" ColumnName="pin_code" />
+          <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
