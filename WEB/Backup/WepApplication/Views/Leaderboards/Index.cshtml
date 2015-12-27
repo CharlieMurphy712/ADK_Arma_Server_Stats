@@ -1,0 +1,39 @@
+﻿@model WepApplication.Models.HomeViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>@Model.AnotherProperty</h1>
+<h2>Top Player Kills</h2>
+<p>@Model.ids.First().name - @Model.ids.First().kills</p>
+<h2>Highest Player Deaths</h2>
+<p>@Model.deaths.First().name - @Model.deaths.First().deaths</p>
+
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Kills</td>
+                <td>Bambi Kills</td>
+                <td>AI Kills</td>
+                <td>Deaths</td>
+                <td>Karma</td>
+            </tr>
+        </thead>
+        @foreach (WepApplication.Models.account item in Model.ids)
+        {
+            <tr>
+                <td>@item.name</td>
+                <td>@item.kills</td>
+                <td>@item.bambi_kills</td>
+                <td>@item.ai_kills</td>
+                <td>@item.deaths</td>
+                <td>@item.karma</td>
+            </tr>
+        }
+    </table>
+</div>
